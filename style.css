@@ -7,7 +7,469 @@ title{
     transition-duration: var(#9b6363);
 }
 body {
+    font-family: Arial, sans-serif;/* إعدادات عامة */
+title{
+    margin: center;
+    font-size: 20px;
+    color: black;
+    padding: 200px;
+    transition-duration: var(#9b6363);
+}
+body {
     font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #ffecfea7;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr; /* عمود واحد */
+    gap: 20px; /* المسافة بين العناصر */
+    justify-items: center;
+    text-align: center;
+}
+
+/* زر المينيو (3 خطوط) */
+.menu-icon {
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #d584a5; /* لون خلفية الزر */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* زر القائمة (الهامبرغر منيو) */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px; /* حجم الزر */
+    height: 50px;
+    background-color: #ffb6c1; /* لون وردي فاتح */
+    color: black;
+    border: none;
+    border-radius: 8px; /* يجعل الزوايا مربعة ولكن ناعمة */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* تأثير عند تمرير الماوس */
+.menu-btn:hover {
+    background-color: #ff9eb5;
+}
+
+
+
+/* القائمة الجانبية */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* مخفية خارج الشاشة */
+    width: 250px;
+    height:calc(100% - 50px);
+    background-color: #4b0e3d;
+    color: white;
+    transition: 0.3s ease-in-out; /* تأثير الانزلاق */
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar:hover .box{
+   transform: scale(4.9s);
+   transition: ease-in-out;
+}
+
+.sidebar:hover .sidebar{
+    transform: scale(1.5, 1.5);
+}
+
+.box {
+    background-color: #f1c4ee; /* اللون الخلفي */
+    padding: 10px;
+    margin-bottom: 13px; /* المسافة بين الصناديق */
+    border-radius: 3.2px; /* زاوية مستديرة للصناديق */
+    transition: color 0.3s ease; /* تأثير سلس عند تغيير اللون */
+}
+
+.box:hover {
+    color: white;
+}
+.box:hover .box{
+    transform: scale(1.5, 1.5);
+}
+
+.box a {
+    text-decoration: none; /* إزالة التسطير */
+    color: hsl(0, 100%, 94%); /* اللون النص */
+    font-weight: bold; /* جعل النص عريض */
+    display: block; /* جعل الرابط يحتل المساحة بالكامل */
+}
+
+.box:hover .box a{
+    transform: scale(1.5, 1.5);
+} 
+
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar a{
+    text-align: center;
+    padding: 15px;
+    margin: 13px;
+    color: rgb(1, 1, 1);
+    font-size: 200%;
+    text-decoration: underline;
+    text-decoration: none;
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/* عند فتح القائمة */
+.sidebar.open {
+    right: 0;
+}
+
+.content {
+    transition: margin-right 0.3s ease-in-out;
+}
+
+/* عند فتح القائمة، يتم دفع المحتوى */
+.sidebar.open ~ .content {
+    margin-right: 100px; /* دفع المحتوى لليسار */
+}
+
+
+/* المحتوى الرئيسي */
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 130px;
+   gap: 10px;
+}
+
+.content h1{
+  font-size: 2.4rem;
+  margin-left: 95px;
+  margin-top: auto;
+  display: block;
+}
+
+.azkar-box span{
+    color: rgb(77, 184, 146);
+}
+
+.azkar-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    left: 40%;
+    transform: translateX(-50%);
+    width: 45%;
+    padding: 25px;
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 19px;
+    text-align: center;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2); /* إضافة ظل خفيف */
+    display: flex;
+   flex-direction: column;
+   margin: 15px;
+   gap: 25px;
+}
+
+
+.azkar-section {
+    color: white; /* لون النص */
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.azkar-section:hover {
+    text-shadow: 0 0 10px white; /* تأثير الإضاءة */
+    cursor: pointer;
+}
+
+
+
+/* زر العدّاد */
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.counter button {
+    background-color: #ffb6c1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+h1 {
+    position: absolute;
+    top: 8%; /* يحدد المسافة من الأعلى */
+    left: 35%; /* يحدد المسافة من اليسار */
+    transform: translateX(-50%); /* يجعل العنوان في المنتصف */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.reset-btn {
+    background-color: white;
+    border: 2px solid #b30059;
+    color: #b30059;
+}
+button {
+    background-color: pink;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff99cc;
+}
+
+/* تصميم الروابط داخل القائمة */
+nav ul li a {
+    color: white; /* لون النص */
+    font-size: 24px;
+    text-decoration: none; /* إزالة التسطير */
+    display: block; /* يجعل العنصر يأخذ كامل المساحة */
+    padding: 10px 15px; /* تباعد داخلي */
+    transition: text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* التأثير عند تمرير الماوس */
+nav ul li a:hover {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.9); /* تأثير الإضاءة */
+    color: #fff; /* تثبيت اللون الأبيض */
+}
+
+/* تصميم البوكس للزر */
+/* تصميم البوكس للزر */
+.a-an {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9b59b6; /* لون الخلفية */
+    color: white; /* لون النص */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
+    /* تثبيت الزر في أسفل الصفحة */
+    position: fixed; 
+    bottom: 20px; /* المسافة من الأسفل */
+    left: 50%; /* جعله في المنتصف */
+    transform: translateX(-50%); /* ضبط المحاذاة */
+}
+
+/* التأثير عند تمرير الماوس */
+.a-an:hover {
+    background-color: #8e44ad; /* لون أغمق عند التمرير */
+    transform: translateX(-50%) scale(1.05); /* تكبير طفيف عند التمرير */
+}
+
+/* أيقونة السهم */
+.a-an img {
+    width: 20px;
+    margin-left: 8px; /* مسافة بسيطة بين النص والأيقونة */
+}
+
+
+/* التأثير عند تمرير الماوس */
+.a-an:hover {
+    background-color: #8e44ad; /* لون أغمق عند التمرير */
+    transform: translateX(-50%) scale(1.05); /* تكبير طفيف عند التمرير */
+}
+
+/* أيقونة السهم */
+.a-an img {
+    width: 20px;
+    margin-left: 8px; /* مسافة بسيطة بين النص والأيقونة */
+}
+
+.a-an body {
+    font-family: Arial, sans-serif;
+    background-color: #f8e8f8; /* لون الخلفية */
+    text-align: center;
+    margin: 100px;
+    padding: 100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* يجعل الزر في الأسفل */
+    align-items: center;
+}
+ .back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9b59b6; /* لون الخلفية */
+    color: white; /* لون النص */
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    margin-bottom: 20px; /* هامش للأسفل */
+}
+.back-button:hover {
+    background-color: #8e44ad; /* لون أغمق عند التمرير */
+    transform: scale(1.05); /* تكبير طفيف عند التمرير */
+}
+ .back-button img {
+    width: 20px;
+    margin-left: 8px;
+}
+
+
+.download {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #a86ebd; /* اللون الأخضر */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+.download:hover {
+    background-color: #b354b8; /* اللون عند المرور */
+  }
+
+  .download-icon {
+    width: 1px; /* يمكنك تغيير الحجم حسب رغبتك */
+    height: 1px; /* تأكد أن الطول والعرض متساويين للحفاظ على شكل الصورة */
+    object-fit: cover;
+  }
+
+
+.name h1{
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    display: grid;
+}
+
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* يجعل الصفحة تأخذ ارتفاع الشاشة بالكامل */
+    margin: 0;
+}  
+
+
+.footer {
+    width: 100%; /* جعل الفوتر بعرض الصفحة بالكامل */
+    background-color: #49025785; /* لون داكن للفوتر */
+    color: white; /* لون النص */
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #000000; /* خط علوي بلون أزرق */
+    margin-top: auto; /* يدفع الفوتر إلى الأسفل */
+    z-index: 1001; /* أعلى من القائمة الجانبية */
+}
+
+.footer a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+
+/* تنسيق الشعار */
+.logo {
+    position: fixed; /* لضبط الشعار في مكانه حتى عند التمرير */
+    top: 10px; /* المسافة من أعلى الصفحة */
+    left: 10px; /* المسافة من يسار الصفحة */
+    width: 50px; /* عرض الشعار */
+    height: auto; /* لضبط الارتفاع تلقائيًا بناءً على العرض */
+    display: none; /* إخفاء الشعار بشكل افتراضي */
+    transition: all 0.3s ease-in-out; /* تأثير الانتقال عند التغيير */
+}
+
+/* إظهار الشعار عندما يكون في أعلى الصفحة */
+.show-logo {
+    display: block; /* عرض الشعار عند التمرير إلى أعلى الصفحة */
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+/* إخفاء الشريط الأفقي */
+body {
+    overflow-x: hidden; /* يمنع التمرير الأفقي */
+}
+
+
     direction: rtl;
     background-color: #ffecfea7;
     margin: 0;
